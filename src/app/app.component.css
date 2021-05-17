@@ -1,0 +1,12 @@
+* {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.badgeDiv button {
+    font-size: 14px;
+    height: 30px;
+    padding: 5px;
+    background-color: royalblue;
+}
+

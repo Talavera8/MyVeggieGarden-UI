@@ -1,0 +1,36 @@
+.container-fluid {
+    background-color: #c7892d;
+}
+
+#regContImg {
+    background-image: url('../../assets/images/createAccImg1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.row {
+    height: 100vh;
+    padding-top: 125px;
+}
+
+.panel {
+    box-shadow: 2px 2px 5px 2px rgb(216, 210, 210), -2px -2px 5px 2px rgb(216, 210, 210);
+}
+
+.panel-heading {
+    color: white;
+    background-color:#0dba94;
+}
+
+input {
+    background-color: rgb(241, 245, 241);
+}
+
+label {
+    color: grey;
+}
+
+.btn {
+    color: white;
+    background-color: #ff6600;
+}

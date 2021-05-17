@@ -1,0 +1,22 @@
+<div *ngIf='showShop' class='container-fluid'>
+    <div class='row'>
+        <div class='badgeDiv'>
+            <button (click)='goToCart()' type="button" class="btn">
+                Go to Cart <span class="badge badge-light"></span>
+            </button>
+        </div>
+        <div class='col-md-12' *ngIf=products>
+            <div class='inlineDisplay' *ngFor="let p of products">
+                <div><img class='imgSize' src={{path+p.productImageUrl}} /></div>
+                <div [ngStyle]="{'font-weight': fontWeight, 'font-size': fontSize}">${{p.productUnitPrice}}</div>
+                <div>{{p.productName}}</div>
+                <div class='pDescDivMarg'>{{p.productDescription}}</div>
+                <div id='itemAdd-{{p.productId}}'><button (click)='addQuantity(p)' class='btn addItemBtnFormat' type='click'>Add to cart</button></div>
+                <div hidden id='qtyAdd-{{p.productId}}'><button class='addQtyBtnFormat'><span (click)='decreaseQty(p)' id='qtyDecrease-{{p.productId}}'>- </span> <span id='qtyCount-{{p.productId}}'>1</span><span (click)='increaseQty(p)' id='qtyIncrease-{{p.productId}}'> +</span></button></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf='showCart'>
+    <app-shopping-cart [prodArr]='purchProds' [qtyArr]='purchQtys' [calcObj]='calculations'></app-shopping-cart>
+</div>

@@ -1,0 +1,100 @@
+/* .rowCenterItems {
+    display: flex;
+    justify-content: center;
+    
+} */
+
+/* .row {
+    position: relative;
+} */
+
+.centerItems {
+    display: flex;
+    justify-content: center;
+}
+
+.rowMargin1 {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.box {
+    border: 1px solid lightgrey;
+    padding: 20px;
+    height: 550px;
+    width: 360px;
+}
+
+.box p {
+    text-align: center;
+    font-size: 12px;
+}
+
+.box p span {
+    color: green;
+}
+
+.placeOrderDiv {
+    border: 1px solid black;
+    background-color: #ffcd58;
+    padding: 8px;
+    text-align: center;
+}
+
+.placeOrderBtn {
+    background-color: #ffcd58;
+    border: none;
+}
+
+.totalMarg {
+    margin-left: -13px;
+}
+
+.qtyMarg {
+    margin-left: 20px;
+}
+
+.imgMarg {
+    margin-left: 10px;
+}
+
+.tittleColor {
+    color: rgb(165, 110, 100);
+    font-weight: bold;
+}
+
+.displayBlock {
+    display: block;
+}
+
+ label {
+     display: block;
+     padding: 3px;
+     margin-top: 18px;
+ }
+
+ input {
+    margin-top: 10px;
+ }
+
+ select {
+     margin-top: 20px;
+ }
+
+ .btn {
+     margin-top: 20px;
+     margin-left: 45px;
+     background-color: rgb(165, 110, 100);
+     color: white;
+     border-radius: 4px;
+ }
+ 
+ table {
+     margin-top: 10px;
+     margin-bottom: 10px;
+ }
+
+ .imgSize {
+     width: 20px;
+ }
+

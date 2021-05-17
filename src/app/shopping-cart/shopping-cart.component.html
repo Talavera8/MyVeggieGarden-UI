@@ -1,0 +1,116 @@
+<div class='container'>
+    <div class='row rowMargin1 rowCenterItems'>
+        <div class='col-md-6 form1'>
+            <div class='col-md-2'>
+                <h4 class='tittleColor'>1 Shipping address</h4>
+            </div>
+            <div class='col-md-1'></div>
+            <div class='col-md-8'>
+                <form (ngSubmit)='addAddress()' #addressForm='ngForm' class='form-inline'>
+                    <div class='col-md-5'>
+                        <label for='stNum'>Street Number</label>
+                        <label for='stNm'>Street Name</label>
+                        <label for='cy'>City</label>
+                        <label for='st'>State</label>
+                        <label for='zip'>Zip code</label>
+                    </div>
+                    <div class='col-md-7'>
+                        <input class='form-control' type='text' [(ngModel)]='streetNum' name='StNum' />
+                        <input class='form-control' type='text' [(ngModel)]='streetName' name='stNm' />
+                        <input class='form-control' type='text' [(ngModel)]='city' name='cy' />
+                        <input class='form-control' type='text' [(ngModel)]='state' name='st' />
+                        <input class='form-control' type='text' [(ngModel)]='zip' name='zip' />
+                    </div>
+                    <div><button type='submit' class='btn'>Use this address</button></div>
+                </form>
+            </div>
+            <div class='col-md-2'>
+                <h4 class='tittleColor'>2 Payment method</h4>
+            </div>
+            <div class='col-md-1'></div>
+            <div class='col-md-8'>
+                <form (ngSubmit)='addPayment()' #paymentForm='ngForm' class='form-inline'>
+                    <div class='col-md-5'>
+                        <label for='type'>Card type</label>
+                        <label for='cardNum'>Card number</label>
+                        <label for='cardName'>Name on card</label>
+                        <label for='ex'>Ex. date</label>
+                        <label for='cvv'>CVV</label>
+                    </div>
+                    <div class='col-md-7'>
+                        <select [(ngModel)]='cardType' name='cardType'>
+                            <option value='visa'>Visa</option>
+                            <option value='MC'>Mastercard</option>
+                            <option value='Disc'>Discover</option>
+                            <option value='Amx'>American Express</option>
+                        </select>
+                        <input class='form-control' type='text' [(ngModel)]='cardNum' name='cardNum' />
+                        <input class='form-control' type='text' [(ngModel)]='nameOnCard' name='cardName' />
+                        <input class='form-control' type='date' [(ngModel)]="exDate" name='ex' />
+                        <input class='form-control' type='text' [(ngModel)]='cvv' name='cvv' />
+                    </div>
+                    <div><button type='submit' class='btn'>Use this card</button></div>
+                    <div *ngIf='card'><h6>Thank you for your order, {{card.nameOnCard}}</h6></div>
+                    <div *ngIf='errorMessage'><h6>{{errorMessage}}</h6></div>
+                </form>
+            </div>
+        </div>
+        <div class='col-md-6 centerItems'>
+            <div class='box'>
+                <div class='row'>
+                    <div class='placeOrderDiv'><button (click)='placeOrder()' class='placeOrderBtn'>Place your order</button></div>
+                    <p>By placing your order, you agree to MyVeggieGarden's <span><a href=''>privacy notice and
+                                conditions
+                                of
+                                use.</a></span></p>
+                    <hr>
+                    <div><h4>Cart Summary</h4></div>
+                    <div *ngIf='prodArr'>
+                        <div class='col-md-7'>
+                            <th>Item name</th>
+                            <tr *ngFor='let p of prodArr'>
+                                <td>{{p.productName}}</td>
+                            </tr>
+                        </div>
+                        <div class='col-md-2'>
+                            <th>Image</th>
+                            <tr *ngFor='let p of prodArr'>
+                                <td><img class='imgSize imgMarg' src={{path+p.productImageUrl}}/></td>
+                            </tr>
+                        </div>
+                        <div class='col-md-2'>
+                            <th>Quantity</th>
+                            <tr *ngFor='let q of qtyArr'>
+                                <td class='centerItems'>{{q}}</td>
+                            </tr>
+                        </div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <h4>Order Summary</h4>
+                    <div class='col-md-9'>
+                        <div>Items ({{calcObj.numberItems}}):</div>
+                        <div>Shipping & handling:</div>
+                        <div> Total before tax:</div>
+                        <div>Estimated tax to be collected:</div>
+                        <hr>
+                        <h4 class='totalMarg tittleColor'>Order total:</h4>
+                    </div>
+                    <div class='col-md-3'>
+                        <div>{{calcObj.totalWithout | currency}}</div>
+                        <div>$0.00</div>
+                        <div>{{calcObj.totalWithout | currency}}</div>
+                        <div>{{calcObj.taxes | currency}}</div>
+                        <hr>
+                        <h4 class='tittleColor'>{{calcObj.totalWith | currency}}</h4>
+                    </div>
+                </div>
+                <div>{{todayDate | date: "yyyy-MM-dd"}}</div>
+                <div>{{todayDate}}</div>
+                <div *ngIf='card'>{{card.cardExDate | date: "yyyy-MM-dd"}}</div>
+                <div *ngIf='purchaseOrderId'>purchaseOrderId: {{purchaseOrderId}}</div>
+                <div *ngIf='address'>{{address.addressCity}}</div>
+            </div>
+        </div>
+    </div>
+</div>
